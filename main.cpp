@@ -36,10 +36,10 @@ set<string> findMatches(Dictionary d, Grid g){
 int main(){
     Dictionary d;
     d.read("dictionary-2");
-    d.selectionSort();
+    d.quickSort(0, d.numWords-1);
     cout << d.lookup("outnumbering") << endl;
     cout << d.lookup("gjalksdjg");
-    // cout << d;
+    cout << d;
 
     Grid g;
     g.read("input15-2");

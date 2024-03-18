@@ -11,6 +11,7 @@ void Dictionary::read(string filePath){
     while(getline(rfile, line)){
         words.push_back(line);
     }
+    numWords = words.size();
 }
 
 ostream& operator<< (ostream& ostr, Dictionary& d) {
@@ -50,6 +51,25 @@ void Dictionary::selectionSort(){
     }
     cout << endl;
 }
+void Dictionary::quickSort(int left, int right){
+    if(left > right){
+        return;
+    }
+
+    string pivot = words[right];
+    int i = left-1;
+    for(int j=left; j < right-1; j++){
+        if(words[j] <= pivot){
+            i++;
+            swap(i, j);
+        }
+    }
+    int pivotIndex = i+1;
+    swap(pivotIndex, right);
+    quickSort(left, pivotIndex-1);
+    quickSort(pivotIndex+1, right);
+}
+
 string Dictionary::lookup(string word){
     int left = 0;
     int right = words.size()-1;

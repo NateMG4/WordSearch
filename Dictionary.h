@@ -13,10 +13,12 @@ public:
     void read(string filepath);
     string lookup(string word);
     void selectionSort();
+    void quickSort(int left, int right);
     friend ostream& operator<< (ostream& ostr, Dictionary& d);
     void swap(int a, int b);
     int getMaxWordLength();
     int getMinWordLength();
+    int numWords = 0;
 
 private:
     vector<string> words;
