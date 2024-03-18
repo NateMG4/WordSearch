@@ -69,6 +69,11 @@ void Dictionary::quickSort(int left, int right){
     quickSort(left, pivotIndex-1);
     quickSort(pivotIndex+1, right);
 }
+void Dictionary::heapSort(){
+    Heap<string> h(words);
+    words = h.heapSort();
+
+}
 
 string Dictionary::lookup(string word){
     int left = 0;

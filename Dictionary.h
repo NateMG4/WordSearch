@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 #include <math.h>
+#include "Heap.h"
 using namespace std;
 class Dictionary{
 public:
@@ -14,6 +15,7 @@ public:
     string lookup(string word);
     void selectionSort();
     void quickSort(int left, int right);
+    void heapSort();
     friend ostream& operator<< (ostream& ostr, Dictionary& d);
     void swap(int a, int b);
     int getMaxWordLength();

@@ -8,6 +8,7 @@
         "cmath": "cpp",
         "fstream": "cpp",
         "set": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "initializer_list": "cpp"
     }
 }
