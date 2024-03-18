@@ -1,5 +1,9 @@
 #include "Dictionary.h"
 Dictionary::Dictionary() {}
+
+int Dictionary::getMaxWordLength(){ return maxWordLength;}
+int Dictionary::getMinWordLength(){ return minWordLength;}
+
 void Dictionary::read(string filePath){
     string line;
     ifstream rfile;
@@ -39,10 +43,14 @@ void Dictionary::selectionSort(){
         string space(spaces,' ');
         cout << i << "/" << size << " [" << bar<< space<< "] " << progress * 100 << " %\r";
         cout.flush();
+
+        maxWordLength = max((int) words[minIndex].size(), maxWordLength);
+        minWordLength = min((int) words[minIndex].size(), minWordLength);
+
     }
     cout << endl;
 }
-bool Dictionary::lookup(string word){
+string Dictionary::lookup(string word){
     int left = 0;
     int right = words.size()-1;
     while(left <= right){
@@ -53,8 +61,8 @@ bool Dictionary::lookup(string word){
         } else if(curr > word){
             right = index-1;
         } else{
-            return true;
+            return words[left];
         }
     }
-    return false;
+    return "";
 }

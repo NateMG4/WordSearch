@@ -40,3 +40,12 @@ ostream& operator<< (ostream& ostr, Grid& g) {
     }
     return ostr;
 }
+
+char Grid::getChar(int x, int y){
+   if(x >= numRows || x < 0 || y >= numCols || y < 0){
+        return ' ';
+   }
+   return matrix[y][x];
+
+}
+
