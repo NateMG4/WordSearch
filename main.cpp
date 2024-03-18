@@ -33,17 +33,30 @@ set<string> findMatches(Dictionary d, Grid g){
     return foundWords;
 }
 
-int main(){
+void search(int sortAlgorithim){
     Dictionary d;
     d.read("dictionary-2");
-    // d.selectionSort();
-    d.quickSort(0, d.numWords-1);
-    // d.heapSort();
-    // cout << d.lookup("outnumbering") << endl;
-    // cout << d.lookup("gjalksdjg");
-    // cout << d;
 
+    switch(sortAlgorithim){
+        case 1:{
+            d.selectionSort();
+            break;
+        }
+        case 2:{
+            d.quickSort(0, d.numWords-1);
+            break;
+        }case 3:{
+            d.heapSort();
+            break;
+        }default:{
+            std::cout << "invalid selection";
+            return;
+        }
+    }
     Grid g;
+    cout<< "Enter Grid Name: ";
+    string gridName;
+    cin >> gridName;
     g.read("input15-2");
     cout << g;
 
@@ -51,6 +64,18 @@ int main(){
     for(string word : foundWords){
         cout << word<<endl;
     }
+}
+
+int main(){
+    cout << "Choose Sorting Algorithim: " << endl
+    << "(1) Selection Sort" << endl
+    << "(2) Quick Sort" << endl
+    << "(3) Heap Sort" << endl
+    << "Selection: ";
+    int algo;
+    cin >> algo;
+    search(algo);
+
     return 0;
 }
 
