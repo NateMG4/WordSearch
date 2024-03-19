@@ -9,7 +9,9 @@ void Dictionary::read(string filePath){
     ifstream rfile;
     rfile.open(filePath);
     while(getline(rfile, line)){
-        words.push_back(line);
+        if(line.length() >= 5){
+            words.push_back(line);
+        }
     }
     numWords = words.size();
 }

@@ -1,13 +1,16 @@
 #include "Dictionary.h"
 #include "Grid.h"
 #include <set>
+using namespace std;
 
+
+// find all words in grid g, that are present in dictionary d.
 set<string> findMatches(Dictionary d, Grid g){
     set<string> foundWords;
     for(int y = 0; y < g.numRows; y++){
         for(int x = 0; x < g.numCols; x++){
             string testWords[8];
-            for(int i = 0; i < x+1; i++){
+            for(int i = 0; i < max(g.numCols,g.numRows); i++){
                 testWords[0] += g.getChar(y+i,x);
                 testWords[1] += g.getChar(y,x+i);
                 testWords[2] += g.getChar(y-i,x);
@@ -23,7 +26,6 @@ set<string> findMatches(Dictionary d, Grid g){
                     string w = d.lookup(testWords[j]);
                     if(w != ""){
                         foundWords.insert(w);
-                        testWords[j] = "";
                     }
                 }
             }
@@ -33,6 +35,8 @@ set<string> findMatches(Dictionary d, Grid g){
     return foundWords;
 }
 
+
+// Get user input to select grid, the serach grid for words.
 void search(int sortAlgorithim){
     Dictionary d;
     d.read("dictionary-2");
@@ -53,6 +57,8 @@ void search(int sortAlgorithim){
             return;
         }
     }
+
+    cout << d;
     Grid g;
     cout<< "Enter Grid Name: ";
     string gridName;
