@@ -4,6 +4,7 @@ Dictionary::Dictionary() {}
 int Dictionary::getMaxWordLength(){ return maxWordLength;}
 int Dictionary::getMinWordLength(){ return minWordLength;}
 
+// initialize dictionary with words from dictionary file
 void Dictionary::read(string filePath){
     string line;
     ifstream rfile;
@@ -16,17 +17,22 @@ void Dictionary::read(string filePath){
     numWords = words.size();
 }
 
+// print out dictionary
 ostream& operator<< (ostream& ostr, Dictionary& d) {
     for(string word : d.words){
         ostr << word << endl;
     }
     return ostr;
 }
+
+// swap 2 elements in dictionary vector
 void Dictionary::swap(int a, int b){
     string temp = words[a];
     words[a] = words[b];
     words[b] = temp; 
 }
+
+// sort dictionary using selection sort
 void Dictionary::selectionSort(){
     int barWidth = 20;
     cout << "Selection Sort"<< endl;
@@ -53,6 +59,8 @@ void Dictionary::selectionSort(){
     }
     cout << endl;
 }
+
+// sort dictionary using quick sort
 void Dictionary::quickSort(int left, int right){
     if(left > right){
         return;
@@ -71,12 +79,15 @@ void Dictionary::quickSort(int left, int right){
     quickSort(left, pivotIndex-1);
     quickSort(pivotIndex+1, right);
 }
+
+// sort dictionary using heapSort
 void Dictionary::heapSort(){
     Heap<string> h(words);
     words = h.heapSort();
 
 }
 
+// loop up word in sorted dictionary using binary search
 string Dictionary::lookup(string word){
     int left = 0;
     int right = words.size()-1;

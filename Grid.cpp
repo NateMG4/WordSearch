@@ -5,6 +5,7 @@ Grid::Grid(){
     numRows = 0;
 }
 
+// read grid from input file
 void Grid::read(string filePath){
     char c;
     ifstream rfile;
@@ -31,6 +32,8 @@ void Grid::read(string filePath){
         num++;
     }
 }
+
+// print grid to consol
 ostream& operator<< (ostream& ostr, Grid& g) {
     for(int y = 0; y < g.numRows; y++){
         for(int x = 0; x < g.numCols; x++){
@@ -41,6 +44,7 @@ ostream& operator<< (ostream& ostr, Grid& g) {
     return ostr;
 }
 
+// get character at x and y cordinate.
 char Grid::getChar(int x, int y){
    if(x >= numRows || x < 0 || y >= numCols || y < 0){
         return ' ';

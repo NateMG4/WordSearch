@@ -58,12 +58,11 @@ void search(int sortAlgorithim){
         }
     }
 
-    cout << d;
     Grid g;
     cout<< "Enter Grid Name: ";
     string gridName;
     cin >> gridName;
-    g.read("input15-2");
+    g.read(gridName);
     cout << g;
 
     set<string> foundWords = findMatches(d, g);
