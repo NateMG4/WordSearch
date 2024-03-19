@@ -66,6 +66,7 @@ void search(int sortAlgorithim){
     cout << g;
 
     set<string> foundWords = findMatches(d, g);
+    cout<< "Found words:" << endl;
     for(string word : foundWords){
         cout << word<<endl;
     }
@@ -81,6 +82,9 @@ int main(){
     cin >> algo;
     search(algo);
 
+
+    int x;
+    cin >> x;
     return 0;
 }
 

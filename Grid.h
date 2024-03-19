@@ -9,6 +9,7 @@ using namespace std;
 class Grid{
 public:
     Grid();
+    ~Grid();
     void read(string filePath);
     friend ostream& operator<< (ostream& ostr, Grid& g);
     char getChar(int x, int y);

@@ -45,6 +45,8 @@ void Dictionary::selectionSort(){
             }
         }
         swap(i, minIndex);
+
+        // progress bar
         float progress = ( 1.0*i)/size;
         int numBars = barWidth * progress;
         int spaces = (barWidth - numBars);
@@ -87,19 +89,20 @@ void Dictionary::heapSort(){
 
 }
 
-// loop up word in sorted dictionary using binary search
+// loop up word in sorted dictionary using binary search. 
+// Return the word if it is found, and an empty string if not.
 string Dictionary::lookup(string word){
     int left = 0;
     int right = words.size()-1;
     while(left <= right){
         int index = floor(left + right) / 2;
         string curr = words[index];
-        if(curr < word){
+        if(curr == word){
+            return curr;
+        }else if(curr < word){
             left = index+1;
-        } else if(curr > word){
-            right = index-1;
         } else{
-            return words[left];
+            right = index-1;
         }
     }
     return "";

@@ -52,4 +52,10 @@ char Grid::getChar(int x, int y){
    return matrix[y][x];
 
 }
+Grid::~Grid(){
+    for(int i = 0; i < numRows; i++){
+        delete [] matrix[i];
+    }
+    delete [] matrix;
+}
 
